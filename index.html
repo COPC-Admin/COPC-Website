@@ -156,6 +156,23 @@
             transform: scaleY(1);
             transition: opacity 0.7s ease-out, max-height 0.7s ease-out, transform 0.7s ease-out;
         }
+
+        /* Event card expansion styles */
+        .event-card-hidden {
+            opacity: 0;
+            max-height: 0;
+            overflow: hidden;
+            transform: scaleY(0.8); /* Slightly shrink for animation */
+            transform-origin: top;
+            transition: opacity 0.7s ease-out, max-height 0.7s ease-out, transform 0.7s ease-out;
+        }
+
+        .event-card-visible {
+            opacity: 1;
+            max-height: 500px; /* Sufficient height for an event card */
+            transform: scaleY(1);
+            transition: opacity 0.7s ease-out, max-height 0.7s ease-out, transform 0.7s ease-out;
+        }
     </style>
     <!-- Schema.org Structured Data -->
     <script type="application/ld+json">
@@ -209,7 +226,7 @@
     <nav class="bg-[#F0EDE5] shadow-lg p-4 sticky top-0 z-50 relative" id="main-nav">
         <div class="container mx-auto flex justify-between items-center">
             <!-- Changed text color of "City of Prayer Church" to #800020 -->
-            <a href="#" class="text-2xl font-bold text-[#800020] rounded-lg p-2 hover:bg-indigo-50 transition duration-300"> Jules Dessin Ministries</a>
+            <a href="#" class="text-2xl font-bold text-[#800020] rounded-lg p-2 hover:bg-indigo-50 transition duration-300"> City of Prayer Embassy </a>
 
             <!-- Hamburger menu icon for mobile -->
             <button class="hamburger md:hidden z-50" id="hamburger-button" aria-label="Toggle navigation menu">
@@ -235,17 +252,18 @@
     <header id="home" class="flex flex-col md:flex-row items-center justify-center min-h-screen bg-[#F0EDE5] p-4">
         <!-- Image Half -->
         <div class="w-full md:w-1/2 h-96 md:h-screen flex items-center justify-center p-4">
-            <img src="Homepage_img.jpeg" alt="Interior view of City of Prayer Church with modern seating and altar" class="object-cover w-full h-full rounded-xl shadow-lg transform transition-transform duration-500 hover:scale-105">
+            <!-- Changed object-cover to object-contain to prevent image cropping -->
+            <img src="City-4.PNG" alt="Interior view of City of Prayer Church with modern seating and altar" class="object-contain w-full h-full rounded-xl shadow-lg transform transition-transform duration-500 hover:scale-105">
         </div>
 
         <!-- About Section Half -->
         <!-- Adjusted flex properties to center content within this column -->
         <div id="about" class="w-full md:w-1/2 p-8 md:p-12 flex flex-col justify-center items-center">
             <!-- Added mx-auto to center the heading block, text-center for text alignment -->
-            <h1 class="text-5xl md:text-6xl font-extrabold text-[#800020] mb-6 leading-tight text-center mx-auto">Welcome to<br>Jules Dessin Ministries!</h1>
+            <h1 class="text-5xl md:text-6xl font-extrabold text-[#800020] mb-6 leading-tight text-center mx-auto">Welcome to<br>City of Prayer Embassy!</h1>
             <!-- Added mx-auto to center the paragraph block, text-center for text alignment -->
             <p class="text-lg md:text-xl text-gray-700 mb-8 max-w-2xl text-center mx-auto">
-               At Jules Dessin Ministries, our journey is deeply rooted in the transformative power of prayer, a vital conversation consistently guided by the Holy Spirit and made possible through Jesus Christ, our Lord and Savior. Through our collective communion with Him, we've discovered a profound hunger for God's presence and heavenly perspective, allowing divine insights to shape our path as a community.<br><br>It is in these moments of prayer, in reliance on Jesus' finished work, that we find clarity, receive divine enablement, and witness true transformation, not just in our individual lives but in the broader impact of God's will unfolding through our very existence as the City of Prayer. Prayer isn't merely what we do; it's who we are – a continuous pursuit of God's heart and purpose, centered on Christ, for our city and beyond.
+               At City of Prayer Embassy, our journey is deeply rooted in the transformative power of prayer, a vital conversation consistently guided by the Holy Spirit and made possible through Jesus Christ, our Lord and Savior. Through our collective communion with Him, we've discovered a profound hunger for God's presence and heavenly perspective, allowing divine insights to shape our path as a community.<br><br>It is in these moments of prayer, in reliance on Jesus' finished work, that we find clarity, receive divine enablement, and witness true transformation, not just in our individual lives but in the broader impact of God's will unfolding through our very existence as the City of Prayer. Prayer isn't merely what we do; it's who we are – a continuous pursuit of God's heart and purpose, centered on Christ, for our city and beyond.
             </p>
             <!-- Changed href to #contact for "Learn More About Us" button -->
             <a href="#contact" class="bg-indigo-700 text-white px-8 py-4 rounded-full text-lg font-semibold shadow-lg hover:bg-indigo-800 transition duration-300 transform hover:scale-105 mx-auto">Learn More About Us</a>
@@ -407,16 +425,42 @@
                     <img src="Upcoming Events 07.28.25.jpeg" alt="Promotional image for '7 Nights of Spiritual Warfare' event" class="w-full md:w-1/3 h-48 md:h-auto object-cover">
                     <div class="p-6 flex-1">
                         <h3 class="text-2xl font-semibold text-indigo-700 mb-2">7 Nights of Spiritual Warfare</h3>
-                        <p class="text-gray-600 mb-4"><span class="font-bold">Date:</span> July 28th, 2025 | <span class="font-bold">Time:</span> 7:30 PM</p>
+                        <p class="text-gray-600 mb-4"><span class="font-bold">Date:</span> July 28th | <span class="font-bold">Time:</span> 7:30 PM</p>
                         <p class="text-gray-700 text-base">
                             An exciting week of activities, learning, and spiritual growth. Register now!
                         </p>
                         <a href="#" class="mt-4 inline-block text-indigo-600 hover:text-indigo-800 font-medium">Register Now &rarr;</a>
                     </div>
                 </div>
+
+                <!-- New Event Card 3 -->
+                <div class="event-card-hidden bg-[#F0EDE5] rounded-xl shadow-md overflow-hidden flex flex-col md:flex-row transform transition-transform duration-300 hover:scale-105 hover:shadow-xl">
+                    <img src="JDM 6 Weeks Mentorship Course-3.PNG" alt="Power of Words'" class="w-full md:w-1/3 h-48 md:h-auto object-cover">
+                    <div class="p-6 flex-1">
+                        <h3 class="text-2xl font-semibold text-indigo-700 mb-2">Intensive Teachings On The Power of Words </h3>
+                        <p class="text-gray-600 mb-4"><span class="font-bold">Date:</span> August 14th - September 18, 2025 <!-- | <span class="font-bold">Time:</span> 9:00 AM - 3:00 PM--></p>
+                        <p class="text-gray-700 text-base">
+                            To Register please email julesdessinministries01@gmail.com
+                        </p>
+                        <a href="#" class="mt-4 inline-block text-indigo-600 hover:text-indigo-800 font-medium">Sign Up to Volunteer &rarr;</a>
+                    </div>
+                </div>
+
+                <!-- New Event Card 4 
+                <div class="event-card-hidden bg-[#F0EDE5] rounded-xl shadow-md overflow-hidden flex flex-col md:flex-row transform transition-transform duration-300 hover:scale-105 hover:shadow-xl">
+                    <img src="https://placehold.co/640x360/E0E0E0/333333?text=Event+4" alt="Promotional image for 'Annual Prayer Conference'" class="w-full md:w-1/3 h-48 md:h-auto object-cover">
+                    <div class="p-6 flex-1">
+                        <h3 class="text-2xl font-semibold text-indigo-700 mb-2">Annual Prayer Conference</h3>
+                        <p class="text-gray-600 mb-4"><span class="font-bold">Date:</span> October 10-12, 2025 | <span class="font-bold">Time:</span> Various Sessions</p>
+                        <p class="text-gray-700 text-base">
+                            A powerful weekend of worship, teachings on prayer, and intercession with guest speakers.
+                        </p>
+                        <a href="#" class="mt-4 inline-block text-indigo-600 hover:text-indigo-800 font-medium">View Conference Schedule &rarr;</a>
+                    </div> -->
+                </div>
             </div>
             <div class="text-center mt-12">
-                <a href="#" class="bg-indigo-600 text-white px-6 py-3 rounded-full text-lg font-semibold shadow-md hover:bg-indigo-700 transition duration-300">View All Events</a>
+                <button id="view-more-events" class="bg-indigo-600 text-white px-6 py-3 rounded-full text-lg font-semibold shadow-md hover:bg-indigo-700 transition duration-300">View All Events</button>
             </div>
         </div>
     </section>
@@ -431,7 +475,7 @@
                 <p class="text-gray-700 mb-6">
                     Discover profound insights and spiritual guidance in "Declare and Despair" by Prophet Jules Dessin.
                 </p>
-                <a href="https://www.amazon.com/Declare-Despair-1-Jules-Dessin/dp/B0FBGKXZHQ/ref=sr_1_1?crid=2CEE65QW6S9DH&dib=eyJ2IjoiMSJ9.KRxK4D4MplZxpy8T3volcQWYOGWc50w7J0_zmr_EUdfpVke6B5aHRSx-FVLhQdfRuFW0-x1woNblG0SYvphKwwiukSO3hqcts-Zvq36vaON6mmCwxIWVKUB1LvO4EnsW-0rfH8Y1Jm1tDPVTeaqSFh0BStBJtTXiwkUXkI307j4Y6TwGlCPLoAjlu4XreXhulzN7ZLpbKCN5AVf8YNAkklCPUxqCb6aDHsFVk6aXfxU.LY2T9bfe6BoC5O2hqIparHsU5d3qrzFcb29iC6ollMY&dib_tag=se&keywords=jules+dessin&qid=1752849881&sprefix=jules+dessin%2Caps%2C103&sr=8-1" target="_blank" rel="noopener noreferrer" class="bg-indigo-700 text-white px-8 py-4 rounded-full text-lg font-semibold shadow-lg hover:bg-indigo-800 transition duration-300 transform hover:scale-105">
+                <a href="https://www.amazon.com/Declare-Despair-1-Jules-Dessin/dp/B0FBGKXZHQ/ref=sr_1_1?crid=2CEE65QW6S9DH&dib=eyJ2IjoiMSJ9.KRxK4D4MplZxpy8T3volcQWYOGWc50w7J0_zmr_EUdfpVke6B5aHRSx-FVLhQdfRuFW0-x1woNblG0SYvphKwwiukSO3hqcts-Zvq36vaON6mmCwxIWVKUB1LvO4EnsW-0rfH8Y1Jm1tDPVTeaqSFh0BStBJtTXiwkUXkI307j4Y2TwGlCPLoAjlu4XreXhulzN7ZLpbKCN5AVf8YNAkklCPUxqCb6aDHsFVk6aXfxU.LY2T9bfe6BoC5O2hqIparHsU5d3qrzFcb29iC6ollMY&dib_tag=se&keywords=jules+dessin&qid=1752849881&sprefix=jules+dessin%2Caps%2C103&sr=8-1" target="_blank" rel="noopener noreferrer" class="bg-indigo-700 text-white px-8 py-4 rounded-full text-lg font-semibold shadow-lg hover:bg-indigo-800 transition duration-300 transform hover:scale-105">
                     Buy on Amazon
                 </a>
             </div>
@@ -510,6 +554,11 @@
             const viewMoreSermonsButton = document.getElementById('view-more-sermons');
             const hiddenSermonCards = document.querySelectorAll('.sermon-card-hidden');
 
+            // Event cards expansion
+            const viewMoreEventsButton = document.getElementById('view-more-events');
+            const hiddenEventCards = document.querySelectorAll('.event-card-hidden');
+
+
             // Toggle mobile navigation menu
             hamburgerButton.addEventListener('click', () => {
                 hamburgerButton.classList.toggle('open');
@@ -550,6 +599,17 @@
                 });
                 viewMoreSermonsButton.style.display = 'none'; // Hide button after showing cards
             });
+
+            // Event cards expansion
+            if (viewMoreEventsButton) {
+                viewMoreEventsButton.addEventListener('click', () => {
+                    hiddenEventCards.forEach(card => {
+                        card.classList.remove('event-card-hidden');
+                        card.classList.add('event-card-visible');
+                    });
+                    viewMoreEventsButton.style.display = 'none'; // Hide button after showing cards
+                });
+            }
         });
     </script>
 </body>
